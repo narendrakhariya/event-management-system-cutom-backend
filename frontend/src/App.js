@@ -31,11 +31,15 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Home from "./pages/Home";
 import Root from "./pages/Root";
 import Events, { loader as eventsLoader } from "./pages/Events";
-import EventDetail, { loader as eventDetailLoader } from "./pages/EventDetail";
-import NewEvent, { action as newEventAction } from "./pages/NewEvent";
+import EventDetail, {
+  action as deleteEventAction,
+  loader as eventDetailLoader,
+} from "./pages/EventDetail";
 import EditEvent from "./pages/EditEvent";
 import Error from "./pages/Error";
 import EventsRoot from "./pages/EventsRoot";
+import { action as manipulateEventAction } from "./components/EventForm";
+import NewEvent from "./pages/NewEvent";
 
 const router = createBrowserRouter([
   {
@@ -61,17 +65,19 @@ const router = createBrowserRouter([
               {
                 index: true,
                 element: <EventDetail />,
+                action: deleteEventAction,
               },
               {
                 path: "edit",
                 element: <EditEvent />,
+                action: manipulateEventAction,
               },
             ],
           },
           {
             path: "new",
             element: <NewEvent />,
-            action: newEventAction,
+            action: manipulateEventAction,
           },
         ],
       },

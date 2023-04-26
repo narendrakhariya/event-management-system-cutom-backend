@@ -1,7 +1,7 @@
 # event-management-system
 
 This interface is mainly design to handle event management system.
-In this project user can see sll the events, create new, modify and store events into local API (JSON file).
+In this project user can see sll the events, create new, modify,delete and store events data into local API (JSON file).
 This project is the perfect example for react route implimentation.
 Here we have implimented various routing features like:
 - Routing
@@ -9,13 +9,16 @@ Here we have implimented various routing features like:
 - Nested Routes
 - Navigation menu Links (NavLink)
 - Route custom Error handling
-- Navigating programmatically 
-- Using Dynamic Routes (useParam hooks)
+- Navigating programmatically with redirect() func
+- Using Dynamic Routes (useParam() hooks)
 - Realtive and Absolute path routing
 - Index route
 - Data fetch with loader() and return responses in loader() func
 - useLoaderData() and useRouteLoaderData() hooks
 - Route action() function
+- Used useNavigate() hook
+- Used useNavigation() hook
+- Used useSubmit() hook
 
 ## Available Scripts
 
