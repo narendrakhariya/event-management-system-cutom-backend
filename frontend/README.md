@@ -19,6 +19,7 @@ Here we have implimented various routing features like:
 - Used useNavigate() hook
 - Used useNavigation() hook
 - Used useSubmit() hook
+- Used useFetcher() hook (without actually loading the page)
 
 ## Available Scripts
 
