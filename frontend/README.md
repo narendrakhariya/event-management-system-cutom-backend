@@ -21,6 +21,7 @@ Here we have implimented various routing features like:
 - Used useSubmit() hook
 - Used useFetcher() hook (without actually loading the page)
 - Defer() function [render page first and load data later]
+- Added Authentication, token, logout with route features
 
 ## Available Scripts
 
