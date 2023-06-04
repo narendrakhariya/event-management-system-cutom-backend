@@ -30,7 +30,7 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Home from "./pages/Home";
 import Root from "./pages/Root";
-import Events, { loader as eventsLoader } from "./pages/Events";
+// import Events, { loader as eventsLoader } from "./pages/Events";
 import EventDetail, {
   action as deleteEventAction,
   loader as eventDetailLoader,
@@ -44,7 +44,10 @@ import NewsLetter, { action as newsLetterAction } from "./pages/NewsLetter";
 import Authentication, { action as authAction } from "./pages/Authentication";
 import { action as logoutAction } from "./pages/Logout";
 import { checkAuthLoader, tokenLoader } from "./util/auth";
+import { Suspense, lazy } from "react";
 
+// Lazy loading component
+const Events = lazy(() => import("./pages/Events"));
 const router = createBrowserRouter([
   {
     path: "/",
@@ -60,8 +63,14 @@ const router = createBrowserRouter([
         children: [
           {
             index: true,
-            element: <Events />,
-            loader: eventsLoader,
+            element: (
+              <Suspense fallback={<p>loading...</p>}>
+                <Events />
+              </Suspense>
+            ),
+            // // Lazy loading loader functions
+            loader: () =>
+              import("./pages/Events").then((module) => module.loader()),
           },
           {
             path: ":eventId",
